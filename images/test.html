@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Gift Box Audio Test</title>
+</head>
+<body>
+  <audio id="giftSound" src="giftbox_mp3.mp3" preload="auto"></audio>
+  <img id="giftBox" src="giftbox.png" style="width:50px;cursor:pointer;" alt="Gift" />
+
+  <script>
+    window.addEventListener('DOMContentLoaded', function () {
+      const giftBox = document.getElementById('giftBox');
+      const giftSound = document.getElementById('giftSound');
+
+      if (giftBox && giftSound) {
+        giftBox.addEventListener('click', () => {
+          giftSound.currentTime = 0;
+          giftSound.volume = 1.0;
+          giftSound.play().catch(err => {
+            console.error('Audio play failed:', err);
+          });
+        });
+      }
+    });
+  </script>
+
+  <div class="dish-card">
+  <h2 class="dish-name">Royal Paneer Makhani</h2>
+  <img src="paneer.jpg" alt="Royal Paneer Makhani" class="dish-image">
+  <p class="dish-quote">“Creamy comfort in every bite.”</p>
+  <p class="dish-chef">Made by: <a href="/chef.html?name=aarav-sharma">Chef Aarav Sharma</a></p>
+  <p class="dish-region">Region: <a href="/region.html?name=north-indian">North Indian</a></p>
+  <div class="dish-actions">
+    <button class="buy-btn">Buy Now</button>
+    <span class="cart-icon">🛒</span>
+  </div>
+</div>
+
+</body>
+</html>

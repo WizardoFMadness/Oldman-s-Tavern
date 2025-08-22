@@ -1,0 +1,354 @@
+body {
+  margin: 0;
+  font-family: Georgia, serif;
+  color: white;
+  background: #000;
+}
+
+/* Background */
+.background {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  background: url('Screenshot (198).png') center/cover no-repeat;
+  z-index: -2;
+}
+.background::after {
+  content: "";
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  background: rgba(0,0,0,0.5);
+  z-index: -1;
+}/* Title */
+.pop-title {
+  font-family: '1970 Dutch', serif;
+  font-size: 3rem;
+  text-align: center;
+  margin: 40px auto 0;
+  background: url('text-fill2.jpg') center/cover no-repeat; /* same as food menu */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  position: relative; /* keep relative for ::after positioning */
+  display: inline-block; /* so underline sizes to text */
+  opacity: 1; /* start invisible */
+  transform: translateY(0); /* start below */
+  transition: all 1s ease-out;
+}
+
+.pop-title.animate-title {
+  opacity: 1;
+  transform: translateY(0); /* move to normal position */
+}
+
+/* Underline */
+.pop-title::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: -6px;
+  transform: translateX(-50%); /* centers underline */
+  width: 240px;   /* shorter underline */
+  height: 3px;
+  background: url('text-fill2.jpg') center/cover no-repeat;
+  border-radius: 2px;
+  box-shadow: 0 0 8px #fff;
+  animation: glowLine 2s infinite alternate;
+}
+
+@keyframes glowLine {
+  0%   { box-shadow: 0 0 5px #fff, 0 0 10px #fff; }
+  50%  { box-shadow: 0 0 10px #fff, 0 0 20px #fff; }
+  100% { box-shadow: 0 0 5px #fff, 0 0 10px #fff; }
+}
+
+.title-wrapper {
+  text-align: center;
+}
+
+/* Menu list */
+.menu-items {
+  list-style: none;
+  padding: 0;
+  margin: 50px auto;
+  max-width: 700px;   /* menu won’t stretch full screen */
+}.menu-item {
+  position: relative;
+  padding: 12px 18px;
+  margin: 12px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+  .food-title {
+  font-family: '1756 Dutchfont', serif;
+  font-size: 48px;  /* keep them big */
+  background: url('menu\ fill.jpg') no-repeat center center / cover;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-align: center;
+  margin: 20px 0;
+}
+
+
+.food-desc {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: rgba(0, 0, 0, 0.85);
+  color: #fff;
+  font-size: 14px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  margin-top: 5px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 10;
+}
+.menu-item:hover .food-desc {
+  opacity: 1;
+  pointer-events: auto;
+}
+.food-name:hover + .food-desc {
+  display: block;
+  opacity: 1;
+}
+
+.button-group {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.button-group button {
+  background: rgba(255,255,255,0.15);
+  border: none;
+  color: white;
+  font-size: 1.2rem;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.count {
+  font-size: 2rem;
+  font-weight: bold;
+  color: white;
+  margin: 0 10px;
+}
+
+/* Cart */
+.cart-container {
+  position: fixed;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2000;
+  cursor: pointer;
+}
+#cartPopup {
+  position: fixed;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 400px;
+  max-height: 80vh;
+  background: rgba(255,255,255,0.1);
+  color: white;
+  border-radius: 12px;
+  padding: 20px;
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255,255,255,0.2);
+  box-shadow: 0 5px 25px rgba(0,0,0,0.6);
+  display: flex;
+  flex-direction: column;
+  visibility: hidden;
+  opacity: 0;
+  z-index: 1500;
+}
+#cartPopup.show {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* Center popup title */
+#cartPopup h2 {
+  text-align: center;
+  margin-bottom: 15px;
+  font-size: 2rem; /* adjust size */
+  font-weight: bold;
+}
+#cartPopup h2.text-filled {
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 15px;
+
+  /* Text fill with image */
+  background: url('text-fill2.jpg') center/cover no-repeat;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+
+  /* fallback if image fails */
+  color: white;
+}
+
+
+#cartItems {
+  flex-grow: 1;
+  overflow-y: auto;
+  margin-bottom: 15px;
+}
+
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+.cart-food-name, .cart-food-total {
+  color: white;
+}.cart-bottom {
+  display: flex;
+  flex-direction: column; /* stack total and button vertically */
+  align-items: center;    /* center horizontally */
+  gap: 12px;              /* spacing between total and button */
+  margin-top: auto;
+}
+
+/* Cart container / button */
+.cart-container {
+  position: fixed;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2000;
+  cursor: pointer;
+
+  width: 60px;
+  height: 60px;
+
+  border: none;
+  outline: none;
+  background: transparent;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Basket image/icon */
+.cart-container img {
+  width: 50px;
+  height: 50px;
+  transition: 0.3s ease;
+}
+
+/* Glow only when hovered */
+/* Glow only when hovered */
+.cart-container:hover img {
+  filter: drop-shadow(0 0 2px #fff)
+          drop-shadow(0 0 3px #0ff);
+}
+
+
+.cart-container img {
+  width: 60px;
+  height: 60px;
+  border: 0;
+  outline: none;
+}
+
+#cartBtn {
+  border: none;
+  outline: none;
+  background: transparent;
+  box-shadow: none;
+}
+#cartBtn:focus { outline: none; }
+
+#cartTotal {
+  font-weight: bold;
+  font-size: 1.5rem;
+  font-family: '1756 Dutchfont', serif; /* your custom font */
+  color: white;
+  text-align: center;
+}
+#closeCart {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;   /* removed glassy background */
+  border: none;       /* removed border */
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+#closeCart:hover {
+  color: #0ff; /* aqua glow color */
+  text-shadow: 0 0 5px #0ff, 0 0 10px #0ff;
+}
+#buyButton {
+  background: rgba(255,255,255,0.1);
+  color: white;
+  border: 1px solid rgba(255,255,255,0.3);
+  border-radius: 6px;
+  padding: 10px 18px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: 0.3s ease;
+}
+
+#buyButton:hover {
+  background: rgba(255,255,255,0.2);
+}
+
+/* Sidebar */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: -250px;
+  width: 250px;
+  height: 100%;
+  background: rgba(0,0,0,0.4);
+  backdrop-filter: blur(10px);
+  padding-top: 100px;
+  box-shadow: 4px 0 12px rgba(0,0,0,0.5);
+  transition: left 0.4s ease;
+  border-right: 1px solid rgba(255,255,255,0.08);
+  z-index: 1000;
+}
+.sidebar nav a {
+  display: block;
+  padding: 15px 25px;
+  color: #fff;
+  text-decoration: underline;
+  font-size: 18px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.sidebar nav a:hover {
+  background: rgba(255,255,255,0.1);
+  color: #ffd700;
+}
+.sidebar.open { left: 0; }
+#toggleBtn {
+  background: none;      /* no background */
+  border: none;          /* no border */
+  outline: none;         /* no outline */
+  box-shadow: none;      /* no shadow */
+  cursor: pointer;       /* pointer cursor */
+  -webkit-tap-highlight-color: transparent; /* removes mobile highlight */
+  padding: 0;            /* remove extra space */
+}
+
+#toggleBtn:focus,
+#toggleBtn:active {
+  outline: none;
+  box-shadow: none;
+  background: none;
+}

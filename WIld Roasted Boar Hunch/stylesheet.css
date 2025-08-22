@@ -1,0 +1,75 @@
+body {
+  margin: 0;
+  height: 100vh;
+  background: url("food menu background.png") no-repeat center center fixed;
+  background-size: cover;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Dim effect using pseudo-element */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5); /* dim level */
+  z-index: 0;
+}/* Title Container */
+.title-container {
+  position: relative;
+  text-align: center;
+  margin-top: 80px;
+  color: #fff;
+  text-shadow: 2px 2px 8px #222;
+  z-index: 2;
+}
+
+/* Tavern-Style Title */
+.pop-title {
+  font-size: 42px;
+  font-weight: 400;
+  font-family: 'Georgia', serif;
+  letter-spacing: 1px;
+  color: #fff; /* ✅ Solid white text */
+  text-shadow:
+    0 0 4px rgba(255, 255, 255, 0.2),
+    0 0 10px rgba(255, 255, 255, 0.3);
+  text-align: center;
+  margin-bottom: 10px;
+  opacity: 0;
+  transform: translateY(30px) scale(0.95);
+  transition: opacity 1.5s ease, transform 1.5s ease;
+   position: relative;
+  padding-bottom: 8px;
+  display: inline-block; /* 🧠 this makes the underline match the text width */
+  margin: 0 auto;         /* center the block */
+}
+
+.pop-title::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;             /* ✅ matches width of the text exactly */
+  height: 2px;
+  background: rgba(255, 255, 255, 0.5);
+  box-shadow: 0 0 6px rgba(255, 255, 255, 0.3);
+}
+
+
+.pop-title::before {
+  left: -35px;
+}
+
+.pop-title::after {
+  right: -35px;
+}
+
+/* When JS adds this class */
+.show-title {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}

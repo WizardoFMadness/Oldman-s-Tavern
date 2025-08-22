@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>OldMan's Tavern</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Sidebar -->
+  <div class="sidebar" id="sidebar">
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">Menu</a>
+      <a href="#">Order Now</a>
+    </nav>
+  </div>
+
+  <!-- Toggle Button -->
+  <button id="toggleBtn" class="toggle-btn">&#x25B6;</button>
+
+  <!-- Background -->
+  <div class="background"></div>
+
+  <!-- Title, Symbol, Quote & Buttons -->
+  <div class="title-container">
+    <h1 class="pop-title">✧ OldMan's Tavern ✧</h1>
+
+    <img src="symbol_better.png" alt="OldMan's Tavern Symbol" class="title-symbol" />
+
+    <p class="inn-quote">
+      "Not just a cuisine site but homage to great chiefs and the people who deserved the finest gourmets"
+    </p>
+
+    <div class="inn-buttons">
+      <a href="test menu1.html" class="btn">Here for Food</a>
+      <a href="https://example-undecided.com" class="btn secondary">Can’t Decide Yet?</a>
+    </div>
+  </div>
+
+<script src="script.js" defer></script>
+
+<img src="gift_box_remastered.png" alt="Gift Box" id="giftBox" />
+<audio id="giftSound" src="giftbox_mp3.mp3" preload="auto"></audio>
+
+<hr class="gift-divider" />
+
+<h2 class="newslet-title">Newslet</h2>
+<!-- Bird Icon Button -->
+<img src="bird2.png" id="birdButton" alt="Bird Icon" />
+
+<!-- Bird Password Popup -->
+<div id="birdPopup" class="bird-popup hidden">
+  <button id="closePopup" class="close-btn">&times;</button>
+  <div class="bird-title">What's the password?</div>
+  <input type="text" id="passwordInput" placeholder="Enter password..." />
+  <button id="submitPassword">Submit</button>
+  <div id="passwordFeedback" class="feedback-text"></div>
+</div>
+
+<div class="newsletter-wrapper">
+  <button class="arrow left">&#10094;</button>
+
+  <div class="newsletter-row" id="scrollContainer">
+    <div class="news-block">Prince to be raised for War<br>Neighnouring boundaries are getting closer a war<br> has been destined </div>
+    <div class="news-block">Empire recuiritng for foot solders<br>We are at urgency any man is acceptable we<br> will pay them fairly</div>
+    <div class="news-block">Black hound will be visitng gourrs<br>as  it seems but black hound might be inttersted<br> in knowing man power in empire</div>
+    <div class="news-block">Shelia Yellow Flare on Sale<br>As the news been spreading it seems<br> to be true </div>
+    <div class="news-block">current dungeons are renovating<br>Its the right time to fend of your precious weappons<br> and material at chheap</div>
+    <div class="news-block">Shuisha magic academy will be aanoucing results<br>iit might seem conspiracy but truth<br> behind top scrorer this year might be back door </div>
+    <div class="news-block">Nihon's finest cheif will be coming soon<br>Masachi kisihme will be bestowing us with his<br> finest sushi skills</div>
+    <div class="news-block">TTeokboki are new hot cakes<br>Food from east have been garning quite a attention from noble<br> house </div>
+    <div class="news-block">answer for eternal youth is here<br>they say a wandering sage has setting around the villlage ....he can be the doctor of eternal youth</div>
+    <div class="news-block">Drop a cooment<br>We would like to listen to what you guys have to offer!</div>
+  </div>
+
+  <button class="arrow right">&#10095;</button>
+</div>
+
+<script>
+  const scrollContainer = document.getElementById('scrollContainer');
+  const leftArrow = document.querySelector('.arrow.left');
+  const rightArrow = document.querySelector('.arrow.right');
+
+  const scrollAmount = 220; // Amount to scroll per block
+
+  // Manual arrows
+  leftArrow.addEventListener('click', () => {
+    scrollContainer.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+  });
+
+  rightArrow.addEventListener('click', () => {
+    scrollContainer.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+  });
+
+  // Auto-scroll: scroll by 1 block every 10 seconds
+  let autoScrollInterval;
+
+  function startAutoScroll() {
+    autoScrollInterval = setInterval(() => {
+      scrollContainer.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+    }, 10000); // 10 seconds
+  }
+
+  function stopAutoScroll() {
+    clearInterval(autoScrollInterval);
+  }
+
+  // Start + pause on hover
+  scrollContainer.addEventListener('mouseenter', stopAutoScroll);
+  scrollContainer.addEventListener('mouseleave', startAutoScroll);
+
+  startAutoScroll();
+</script>
+
+</body>
+</html>

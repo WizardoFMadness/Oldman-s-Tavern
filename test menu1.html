@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Food Menu</title>
+  <link rel="stylesheet" href="test menu.css">
+</head>
+<body>
+  <!-- Background -->
+  <div class="background"></div>
+  <!-- Title -->
+<div class="title-wrapper">
+  <h1 class="pop-title">Food Menu</h1>
+</div>
+
+<ul class="menu-items">
+  <li class="menu-item">
+    <span class="food-title">Omlet Extra Mild (Griffin Edition)</span>
+     <span class="food-desc">A fluffy omelet prepared with griffin eggs, extra mild and light.</span>
+    <div class="button-group">
+      <button class="minus">−</button>
+      <span class="count">0</span>
+      <button class="plus">+</button>
+      <span class="price" data-price="150">150G</span>
+    </div>
+    
+  </li>
+
+  <li class="menu-item">
+    <span class="food-title">Boar Dragon's Burning Meat</span>
+    <span class="food-desc">Charred boar meat marinated with dragon fire spices, smoky and fiery hot.</span>
+    <div class="button-group">
+      <button class="minus">−</button>
+      <span class="count">0</span>
+      <button class="plus">+</button>
+      <span class="price" data-price="300">300G</span>
+    </div>
+    
+  </li>
+
+  <li class="menu-item">
+    <span class="food-title">Special Elven Salad</span>
+    <span class="food-desc">A refreshing salad with elven herbs, fruits, and a light dressing.</span>
+    <div class="button-group">
+      <button class="minus">−</button>
+      <span class="count">0</span>
+      <button class="plus">+</button>
+      <span class="price" data-price="210">210G</span>
+    </div>
+  </li>
+
+  <li class="menu-item">
+    <span class="food-title">Halfling Special</span>
+    <span class="food-desc">A hearty mix of bread, cheese, and roasted meats beloved by halflings.</span>
+    <div class="button-group">
+      <button class="minus">−</button>
+      <span class="count">0</span>
+      <button class="plus">+</button>
+      <span class="price" data-price="750">750G</span>
+    </div>
+    
+  </li>
+
+  <li class="menu-item">
+    <span class="food-title">Rattle Snake Tail</span>
+    <span class="food-desc">Exotic rattlesnake tail grilled to perfection, crunchy outside and tender inside.</span>
+    <div class="button-group">
+      <button class="minus">−</button>
+      <span class="count">0</span>
+      <button class="plus">+</button>
+      <span class="price" data-price="600">600G</span>
+    </div>
+    
+  </li>
+
+  <li class="menu-item">
+    <span class="food-title">Ceasar's Lofty Bread</span>
+    <span class="food-desc">A special bread made with ancient grains, light and fluffy.</span>
+    <div class="button-group">
+      <button class="minus">−</button>
+      <span class="count">0</span>
+      <button class="plus">+</button>
+      <span class="price" data-price="450">450G</span>
+    </div>
+    
+  </li>
+
+  <li class="menu-item">
+    <span class="food-title">Royalty of Sora</span>
+    <span class="food-desc">A rich and creamy dish, fit for the royal families of Sora.</span>
+    <div class="button-group">
+      <button class="minus">−</button>
+      <span class="count">0</span>
+      <button class="plus">+</button>
+      <span class="price" data-price="1500">1500G</span>
+    </div>
+    
+  </li>
+
+  <li class="menu-item">
+    <span class="food-title">Sake & Beverages</span>
+    <span class="food-desc">A variety of brewed beverages, from rice sake to sweet elixirs.</span>
+    <div class="button-group">
+      <button class="minus">−</button>
+      <span class="count">0</span>
+      <button class="plus">+</button>
+      <span class="price" data-price="650">650G</span>
+    </div>
+  
+  </li>
+
+  <li class="menu-item">
+    <span class="food-title">Pastries from City (Packet Edition)</span>
+    <span class="food-desc">Fresh pastries packed for travel, filled with cream, nuts, and fruits.</span>
+    <span class="food-desc"></span>
+    <div class="button-group">
+      <button class="minus">−</button>
+      <span class="count">0</span>
+      <button class="plus">+</button>
+      <span class="price" data-price="500">500G</span>
+    </div>
+    
+  </li>
+
+  <li class="menu-item">
+    <span class="food-title">Quil Lava Gravy</span>
+    <span class="food-desc">A bubbling hot gravy, thick and spicy, inspired by volcanic Quil Lava.</span>
+    <div class="button-group">
+      <button class="minus">−</button>
+      <span class="count">0</span>
+      <button class="plus">+</button>
+      <span class="price" data-price="550">550G</span>
+    </div>
+    
+  </li>
+</ul>
+
+<!-- Cart -->
+<div class="cart-container" id="cartBtn">
+  <img src="basket1_no_bg.png" alt="Cart">
+</div>
+  
+<div id="cartPopup">
+  <button id="closeCart">&times;</button>
+  <h2 class="text-filled">Basket</h2>
+  <div id="cartItems"></div>
+ <div class="cart-bottom">
+  <span id="cartTotal">Total: $0</span>
+  <button id="buyButton">Buy</button>
+</div>
+
+</div>
+
+  <script src="test menu.js"></script>
+</body>
+</html>
