@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cant Decide Yet?</title>
+  <link rel="stylesheet" href="CantDecideYet.css">
+</head>
+<body>
+  <div class="background"></div>
+
+  <div class="buy-container center-container">
+    <div class="buy-title">
+      <span class="star">★</span>
+      <span class="title-text">Cant Decide Yet?</span>
+      <span class="star">★</span>
+    </div>
+    <div class="buy-subtitle">What are you in the mood for?</div>
+
+    <div class="options-container">
+      <button class="option-btn" data-choice="tummy">Fully Tummy</button>
+      <button class="option-btn" data-choice="light">Anything Light</button>
+      <button class="option-btn" data-choice="works">Anything Works</button>
+    </div>
+  </div>
+
+  <!-- Recommendation Popup -->
+  <div class="recommendation-popup" id="recommendationPopup">
+    <button id="closeRecommendation">&times;</button>
+    <h2 class="rec-title">Recommendation</h2>
+    <ul id="recommendationList"></ul>
+  </div>
+
+  <script src="CantDecideYet.js"></script>
+</body>
+</html>
