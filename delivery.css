@@ -1,0 +1,168 @@
+/* Custom Font */
+@font-face {
+  font-family: '1756 Dutchfont';
+  src: url('1756-Dutchfont.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: '1756 Dutchfont', Georgia, serif;
+  background: #111;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Background */
+.background {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  background: url('Screenshot (198).png') center center/cover no-repeat;
+  z-index: -2;
+}
+
+.background::after {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  background: rgba(0,0,0,0.7);
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* Buy Container */
+.buy-container {
+  width: 450px;
+  text-align: center;
+  z-index: 1;
+}
+
+/* Title & Subtitle */
+.buy-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  font-size: 64px;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+  position: relative;
+}
+
+.buy-title .star { color: #fff; font-size: 64px; }
+
+.buy-title .title-text {
+  background: url('title-image3.jpg') center/cover no-repeat;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+/* Subtitle */
+.buy-subtitle {
+  font-size: 36px;
+  font-weight: 600;
+  text-align: center;
+  margin-top: 20px;
+  color: #fff;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 1s ease, transform 1s ease;
+  position: relative;
+}
+
+/* Show subtitle animation */
+.buy-subtitle.show-subtitle {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Underline for subtitle */
+.buy-subtitle::after {
+  content: "";
+  position: absolute;
+  bottom: -8px;      /* distance below text */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 410px;      /* length of underline */
+  height: 3px;       /* thickness */
+  background-color: #fff; /* color of the line */
+  border-radius: 2px;
+  box-shadow: 0 0 6px #fff; /* soft glow */
+}
+
+/* Buy Form */
+.buy-form {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  text-align: center;
+}
+
+.buy-form label {
+  font-weight: bold;
+  font-size: 22px;
+  background: url('text-fill2.jpg') center/cover no-repeat;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.buy-form label.show-label {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.buy-form input {
+  padding: 14px;
+  border-radius: 8px;
+  border: 1px solid #fff;
+  font-size: 20px;
+  width: 100%;
+  text-align: center;
+  background: transparent;
+  color: #fff;
+}
+
+#totalAmount {
+  font-size: 26px;
+  font-weight: bold;
+  display: block;
+  margin-top: 10px;
+}
+
+#confirmBtn {
+  margin-top: 30px;
+  padding: 16px 25px;
+  font-size: 24px;
+  background: #fff;
+  color: #111;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+#confirmBtn:hover {
+  transform: scale(1.1);
+  background: #e0e0e0;
+}
+
+/* Show animations */
+.show-title { opacity: 1; transform: translateY(0); }
+.show-subtitle { opacity: 1; transform: translateY(0); }
+
+
