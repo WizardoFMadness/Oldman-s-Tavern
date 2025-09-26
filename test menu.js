@@ -5,12 +5,13 @@ const cartPopup = document.getElementById("cartPopup");
 const cartItems = document.getElementById("cartItems");
 const cartTotal = document.getElementById("cartTotal");
 const closeCart = document.getElementById("closeCart");
+const buyButton = document.getElementById("buyButton"); // ✅ Buy button
 
 document.querySelectorAll(".menu-item").forEach(item => {
   const plus = item.querySelector(".plus");
   const minus = item.querySelector(".minus");
   const count = item.querySelector(".count");
-  const foodName = item.querySelector(".food-title").textContent.trim(); // FIXED
+  const foodName = item.querySelector(".food-title").textContent.trim(); 
   const price = parseFloat(item.querySelector(".price").dataset.price);
 
   plus.addEventListener("click", e => {
@@ -51,7 +52,7 @@ function renderCart() {
   for (let food in cart) {
     const qty = cart[food];
     const itemElement = Array.from(document.querySelectorAll(".menu-item")).find(el =>
-      el.querySelector(".food-title").textContent.trim() === food // FIXED
+      el.querySelector(".food-title").textContent.trim() === food
     );
     const price = parseFloat(itemElement.querySelector(".price").dataset.price);
     const itemTotal = qty * price;
@@ -66,6 +67,19 @@ function renderCart() {
   }
 
   cartTotal.textContent = `Total: ${total}G`;
+  return total; // ✅ so we can use it
+}
+
+// ✅ Buy button logic
+if (buyButton) {
+  buyButton.addEventListener("click", () => {
+    const total = renderCart(); // recalc latest total
+    if (total > 0) {
+      window.location.href = `../buy-phase/buy-phase.html?total=${total}G`;
+    } else {
+      alert("🛒 Your cart is empty!");
+    }
+  });
 }
 
 // Sidebar toggle
@@ -83,6 +97,6 @@ window.addEventListener('DOMContentLoaded', () => {
   if (title) {
     setTimeout(() => {
       title.classList.add('animate-title');
-    }, 200); // delay for effect
+    }, 200);
   }
 });

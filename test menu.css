@@ -10,7 +10,7 @@ body {
   position: fixed;
   top: 0; left: 0;
   width: 100vw; height: 100vh;
-  background: url('Screenshot (198).png') center/cover no-repeat;
+  background: url('background.png') center/cover no-repeat;
   z-index: -2;
 }
 .background::after {
