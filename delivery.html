@@ -18,14 +18,14 @@
     <h2 class="buy-subtitle">Fill your details below</h2>
 
     <!-- Form wrapper starts here -->
-    <form id="buyForm" action="place_order.php" method="POST" class="buy-form">
+    <form id="buyForm" action="place_order.php" method="POST" class="buy-form" class="buy-subtitle">
       <label for="phone">what to deliver</label>
       <input type="text" id="phone" name="phone" placeholder="Enter name" required>
 
-      <label for="address">Address:</label>
+      <label for="address" class="buy-subtitle" >Address:</label>
       <input type="text" id="address" name="address" placeholder="Enter  address" required>
 
-        <label for="weight">Enter Weight (kg):</label>
+        <label for="weight" class="buy-subtitle">Enter Weight (kg):</label>
 <input type="number" id="weight" name="weight" placeholder="Enter weight" min="1" required>
 
 <p>Total Amount: <span id="totalAmount">G0</span></p>

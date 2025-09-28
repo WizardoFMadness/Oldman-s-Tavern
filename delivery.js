@@ -1,8 +1,20 @@
+
 document.addEventListener("DOMContentLoaded", () => {
     const weightInput = document.getElementById('weight');
     const totalAmount = document.getElementById('totalAmount');
     const quantityInput = document.getElementById('quantity');
 
+    // --- TITLE & SUBTITLE SHOW ---
+    const title = document.querySelector(".buy-title");
+    const subtitle = document.querySelector(".buy-subtitle");
+    setTimeout(() => {
+        title.classList.add("show-title");
+    }, 300); // delay for smooth effect
+    setTimeout(() => {
+        subtitle.classList.add("show-subtitle");
+    }, 800);
+
+    // --- PRICE CALCULATION ---
     weightInput.addEventListener('input', () => {
         const weight = parseFloat(weightInput.value);
         let price = 0;

@@ -68,7 +68,7 @@ body {
   background-clip: text;
   color: transparent;
 }
-/* Subtitle */
+/* Subtitle *//* Default hidden */
 .buy-subtitle {
   font-size: 36px;
   font-weight: 600;
@@ -81,11 +81,12 @@ body {
   position: relative;
 }
 
-/* Show subtitle animation */
+/* When visible */
 .buy-subtitle.show-subtitle {
   opacity: 1;
   transform: translateY(0);
 }
+
 
 /* Underline for subtitle */
 .buy-subtitle::after {
@@ -163,6 +164,6 @@ body {
 
 /* Show animations */
 .show-title { opacity: 1; transform: translateY(0); }
-.show-subtitle { opacity: 1; transform: translateY(0); }
+
 
 
