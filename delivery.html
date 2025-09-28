@@ -17,23 +17,30 @@
     </h1>
     <h2 class="buy-subtitle">Fill your details below</h2>
 
-    <!-- Form wrapper starts here -->
-    <form id="buyForm" action="place_order.php" method="POST" class="buy-form">
-      <label for="phone">what to deliver</label>
-      <input type="text" id="phone" name="phone" placeholder="Enter name" required>
+ 
+<form id="buyForm" action="place_order.php" method="POST" class="buy-form">
+  <h3 class="buy-subtitle">Item</h3>
+  <label for="phone">What to deliver:</label>
+  <input type="text" id="phone" name="phone" placeholder="Enter name" required>
 
-      <label for="address">Address:</label>
-      <input type="text" id="address" name="address" placeholder="Enter  address" required>
+  <h3 class="buy-subtitle">Address</h3>
+  <label for="address">Address:</label>
+  <input type="text" id="address" name="address" placeholder="Enter address" required>
 
-        <label for="weight">Enter Weight (kg):</label>
-<input type="number" id="weight" name="weight" placeholder="Enter weight" min="1" required>
+  <h3 class="buy-subtitle">Weight</h3>
+  <label for="weight">Enter Weight (kg):</label>
+  <input type="number" id="weight" name="weight" placeholder="Enter weight" min="1" required>
 
-<p>Total Amount: <span id="totalAmount">G0</span></p>
+  <!-- Total Amount -->
+  <p>Total Amount: <span id="totalAmount">G0</span></p>
+  <input type="hidden" id="quantity" name="quantity" value="1">
 
-<input type="hidden" id="quantity" name="quantity" value="1">
-<button type="submit" id="confirmBtn">Confirm Purchase</button>
+  <!-- Confirm button -->
+  <button type="button" id="confirmBtn">Confirm Purchase</button>
 
-    </form>
+</form>
+
+
     <!-- Form wrapper ends here -->
 
   </div>
