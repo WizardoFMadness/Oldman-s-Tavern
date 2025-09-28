@@ -4,28 +4,33 @@ $username = "root"; // XAMPP default
 $password = "";
 $dbname = "orders_db"; // Make sure this DB exists
 
-// Connect
+// Connect to MySQL
 $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) die("Connection failed: " . $conn->connect_error);
 
-// Get POST data
+// Get POST data from form
 $phone = $_POST['phone'];
 $address = $_POST['address'];
 $email = $_POST['email'];
-$weight = $_POST['weight'];
-$total = $_POST['total_amount'];
-$ordered_items = $_POST['ordered_items'];
+$food_id = $_POST['food_id'];
+$quantity = $_POST['quantity'];
+$total_amount = $_POST['total_amount'];
 
-// Insert into DB
-$stmt = $conn->prepare("INSERT INTO orders (phone, address, email, weight, total_amount, ordered_items) VALUES (?, ?, ?, ?, ?, ?)");
-$stmt->bind_param("sssids", $phone, $address, $email, $weight, $total, $ordered_items);
+// Prepare and bind
+$stmt = $conn->prepare("
+    INSERT INTO orders (phone, address, email, food_id, quantity, total_amount)
+    VALUES (?, ?, ?, ?, ?, ?)
+");
+$stmt->bind_param("sssiid", $phone, $address, $email, $food_id, $quantity, $total_amount);
 
+// Execute
 if ($stmt->execute()) {
     echo "Order successfully placed!";
 } else {
     echo "Error: " . $stmt->error;
 }
 
+// Close connections
 $stmt->close();
 $conn->close();
 ?>

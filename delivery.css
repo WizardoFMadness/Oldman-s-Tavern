@@ -1,10 +1,10 @@
-/* Custom Font */
 @font-face {
-  font-family: '1756 Dutchfont';
-  src: url('1756-Dutchfont.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-}
+        font-family: '1756DutchW01-Normal'; /* You can choose a different name here */
+        src: url('path/to/your/fonts/1756DutchW01-Normal.ttf') format('truetype'); /* Adjust the path accordingly */
+        font-weight: normal;
+        font-style: normal;
+    }
+    
 
 body {
   margin: 0;

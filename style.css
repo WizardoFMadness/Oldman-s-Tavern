@@ -243,15 +243,14 @@ body, html {
 .toggle-btn.open {
   left: 260px;
   transform: translateY(-50%) rotate(180deg);
-}
-
-/* Optional Font */
-@font-face {
+}@font-face {
   font-family: '1756 Dutchfont';
-  src: url('1756-Dutchfont.ttf') format('truetype');
+  src: url('font/1756DutchW01-Normal.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
+
+
 
 #giftBox {
   position: fixed;
@@ -337,6 +336,7 @@ body, html {
 }
 
 /* Popup box base */
+/* Bird Popup */
 .bird-popup {
   position: fixed;
   top: 50%;
@@ -359,12 +359,21 @@ body, html {
   pointer-events: none;
 }
 
+/* Hidden state (initial) */
+.bird-popup.hidden {
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-50%, -50%) scale(0.97);
+}
+
+/* Show state */
 .bird-popup.show {
   opacity: 1;
   pointer-events: auto;
   transform: translate(-50%, -50%) scale(1);
 }
 
+/* Popup title */
 .bird-title {
   font-size: 22px;
   font-weight: bold;
