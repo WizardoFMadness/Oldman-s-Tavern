@@ -87,3 +87,54 @@ document.addEventListener("DOMContentLoaded", () => {
         window.location.href = "BuyPhase.html";
     });
 });
+
+
+document.addEventListener("DOMContentLoaded", () => {
+    let cart = {};
+
+    document.querySelectorAll(".menu-item").forEach(item => {
+        const plus = item.querySelector(".plus");
+        const minus = item.querySelector(".minus");
+        const count = item.querySelector(".count");
+        const foodName = item.querySelector(".food-title").textContent.trim();
+        const price = parseFloat(item.querySelector(".price").dataset.price);
+
+        plus.addEventListener("click", () => {
+            if (!cart[foodName]) cart[foodName] = 0;
+            cart[foodName]++;
+            count.textContent = cart[foodName];
+        });
+
+        minus.addEventListener("click", () => {
+            if (cart[foodName]) {
+                cart[foodName]--;
+                if (cart[foodName] <= 0) {
+                    delete cart[foodName];
+                    count.textContent = 0;
+                } else {
+                    count.textContent = cart[foodName];
+                }
+            }
+        });
+    });
+
+    document.getElementById("buyButton").addEventListener("click", () => {
+        if (Object.keys(cart).length === 0) {
+            alert("Cart is empty!");
+            return;
+        }
+
+        let total = 0;
+        for (let food in cart) {
+            const itemElement = Array.from(document.querySelectorAll(".menu-item"))
+                .find(el => el.querySelector(".food-title").textContent.trim() === food);
+            const price = parseFloat(itemElement.querySelector(".price").dataset.price);
+            total += cart[food] * price;
+        }
+
+        const cartData = { items: cart, total: total };
+        localStorage.setItem("cartData", JSON.stringify(cartData));
+
+        window.location.href = "BuyPhase.html";
+    });
+});

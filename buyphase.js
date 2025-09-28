@@ -13,6 +13,38 @@ document.addEventListener("DOMContentLoaded", () => {
     setTimeout(() => label.classList.add('show-label'), 1200 + index * 200);
   });
 
+  // Get cart from localStorage
+  const cartData = JSON.parse(localStorage.getItem("cartData") || '{}');
+
+  const buyForm = document.getElementById('buyForm');
+
+  if (cartData.items) {
+      // Show ordered items in the form (as a paragraph)
+      const itemsList = document.createElement('p');
+      itemsList.id = 'orderedItems';
+      itemsList.textContent = "Items: ";
+      for (let food in cartData.items) {
+          itemsList.textContent += `${food} (x${cartData.items[food]}), `;
+      }
+      buyForm.insertBefore(itemsList, buyForm.firstChild);
+
+      // Store items and total in hidden fields for backend
+      let itemsInput = document.createElement('input');
+      itemsInput.type = 'hidden';
+      itemsInput.name = 'ordered_items';
+      itemsInput.value = JSON.stringify(cartData.items);
+      buyForm.appendChild(itemsInput);
+
+      let totalInput = document.createElement('input');
+      totalInput.type = 'hidden';
+      totalInput.name = 'total_amount';
+      totalInput.value = cartData.total;
+      buyForm.appendChild(totalInput);
+
+      document.getElementById('totalAmount').textContent = `G${cartData.total}`;
+      document.getElementById('quantity').value = cartData.total;
+  }
+
   // Confirm purchase
   confirmBtn.addEventListener("click", () => {
     const phone = document.getElementById("phone").value;
@@ -24,19 +56,12 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
+    // Optional: save user info to localStorage
     localStorage.setItem("userPhone", phone);
     localStorage.setItem("userAddress", address);
     localStorage.setItem("userEmail", email);
 
-    alert("Purchase confirmed! Thank you.");
+    // Submit the form to PHP backend
+    buyForm.submit();
   });
-});
-
-document.addEventListener("DOMContentLoaded", () => {
-    const totalAmount = document.getElementById("totalAmount");
-
-    const cartData = JSON.parse(localStorage.getItem("cartData"));
-    if (cartData) {
-        totalAmount.textContent = `${cartData.total}G`;
-    }
 });
