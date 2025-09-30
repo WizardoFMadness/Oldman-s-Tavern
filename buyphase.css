@@ -5,7 +5,6 @@
   font-weight: normal;
   font-style: normal;
 }
-
 body {
   margin: 0;
   padding: 0;
@@ -13,13 +12,16 @@ body {
   background: #111;
   color: #fff;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
+  justify-content: center;   /* center horizontally */
+  align-items: center;       /* center first, but see note below */
+  min-height: 100vh;         /* allow content taller than screen */
   flex-direction: column;
   position: relative;
-  overflow: hidden;
+  overflow-x: hidden;        /* prevent sideways scroll */
+  overflow-y: auto;          /* enable vertical scroll */
 }
+
+
 
 /* Background */
 .background {

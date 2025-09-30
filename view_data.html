@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>View Saved Data</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; }
+    h2 { color: #333; }
+    ul { list-style-type: none; padding: 0; }
+    li { background: #f4f4f4; margin: 5px 0; padding: 10px; border-radius: 5px; }
+  </style>
+</head>
+<body>
+  <h2>Saved Orders</h2>
+  <ul id="ordersList"></ul>
+
+  <h2>Saved Deliveries</h2>
+  <ul id="deliveriesList"></ul>
+
+  <script>
+    // Display orders
+    const orders = JSON.parse(localStorage.getItem('orders')) || [];
+    const ordersList = document.getElementById('ordersList');
+    orders.forEach(order => {
+      const li = document.createElement('li');
+      li.textContent = `Phone: ${order.phone}, Address: ${order.address}, Email: ${order.email}, Food ID: ${order.food_id}, Quantity: ${order.quantity}, Total: ${order.total_amount}`;
+      ordersList.appendChild(li);
+    });
+
+    // Display deliveries
+    const deliveries = JSON.parse(localStorage.getItem('deliveries')) || [];
+    const deliveriesList = document.getElementById('deliveriesList');
+    deliveries.forEach(delivery => {
+      const li = document.createElement('li');
+      li.textContent = `Item: ${delivery.item}, Address: ${delivery.address}, Weight: ${delivery.weight}, Price: ${delivery.price}`;
+      deliveriesList.appendChild(li);
+    });
+  </script>
+</body>
+</html>
