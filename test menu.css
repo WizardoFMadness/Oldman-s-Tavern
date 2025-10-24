@@ -86,7 +86,7 @@ body {
   .food-title {
   font-family: '1756 Dutchfont', serif;
   font-size: 48px;  /* keep them big */
-  background: url('menu\ fill.jpg') no-repeat center center / cover;
+  background: url('menu fill.jpg') no-repeat center center / cover;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;

@@ -243,9 +243,11 @@ body, html {
 .toggle-btn.open {
   left: 260px;
   transform: translateY(-50%) rotate(180deg);
-}@font-face {
+}
+
+@font-face {
   font-family: '1756 Dutchfont';
-  src: url('font/1756DutchW01-Normal.ttf') format('truetype');
+  src: url('1756DutchW01-Normal.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }

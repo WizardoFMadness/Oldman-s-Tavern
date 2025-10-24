@@ -3,8 +3,7 @@
 /* Import your custom font */
 @font-face {
   font-family: '1756 Dutchfont';
-  src: url('fonts/1756-Dutchfont.woff2') format('woff2'),
-       url('fonts/1756-Dutchfont.woff') format('woff');
+  src: url('1756DutchW01-Normal.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
